@@ -1,4 +1,6 @@
 #include "Cage.h"
+#include "ZooException.h"
+
 
 Cage::Cage()
 {
@@ -42,6 +44,13 @@ int Cage::getCurrentNumbOfAnimals() const
 
 void Cage::addAnimalToCage(Animal* animal)
 {
+    if (animalsList.size() >= maxNumbOfAnimals) {
+        throw MaxCapacityException("Cage is full", maxNumbOfAnimals);
+    }
+
+    if (!animalsList.empty() && animalsList[0]->getIsWild() != animal->getIsWild()) {
+        throw PredatorException("You can't add wild animal to domestic", animal->getIsWild());
+    }
     animalsList.push_back(animal);
 }
 

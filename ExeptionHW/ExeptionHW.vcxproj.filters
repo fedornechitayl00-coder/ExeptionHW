@@ -41,5 +41,8 @@
     <ClInclude Include="Mammal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ZooException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
