@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ExeptionHW/ExeptionHW.vcxproj" Id="6b72da20-1dfa-470c-a302-9b054cc95a30" />
+</Solution>
