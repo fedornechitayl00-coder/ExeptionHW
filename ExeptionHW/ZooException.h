@@ -57,7 +57,10 @@ public:
 	NameException(std::string textWarning, std::string name)
 		:ZooException(textWarning) {
 		if (name.size() > 0) {
-			this->name = name;
+			this->name = name; 
+		}
+		else {
+			throw NameException("Name can`t be empty!", name);
 		}
 	}
 
@@ -65,3 +68,4 @@ public:
 		return "Name exception: " + textWarning + "! name : " + name;
 	}
 };
+
