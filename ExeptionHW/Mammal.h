@@ -1,29 +1,35 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Animal.h"
 
 using std::cout;
 
-class Mammal {
+class Mammal 
+	: public Animal
+{
 protected:
-	std::string livingEnviroment;
+	std::string livingEnvironment;
 public:
-	Mammal() {
-		livingEnviroment = "undefined";
+	Mammal() 
+		: Animal() {
+		livingEnvironment = "undefined";
 	}
-	Mammal(std::string livingEnviroment) {
-		this->livingEnviroment = livingEnviroment;
-	}
-
-	void setLivingEnviroment(std::string livingEnviroment) {
-		this->livingEnviroment = livingEnviroment;
+	Mammal(std::string name, bool isWild, std::string livingEnvironment) 
+	: Animal(name, isWild){
+		this->livingEnvironment = livingEnvironment;
 	}
 
-	std::string getLivingEnviroment()const {
-		return livingEnviroment;
+	void setLivingEnvironment(std::string livingEnvironment) {
+		this->livingEnvironment = livingEnvironment;
 	}
 
-	void showDescription()const {
-		cout << "\nLiving enviroment: " << livingEnviroment;
+	std::string getLivingEnvironment()const {
+		return livingEnvironment;
+	}
+
+	void showDescription()const override{
+		Animal::showDescription();
+		cout << "\nLiving Environment: " << livingEnvironment;
 	}
 };

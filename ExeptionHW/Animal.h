@@ -11,7 +11,7 @@ protected:
 public:
 	Animal();
 	Animal(std::string name, bool isWild);
-	~Animal() {};
+	virtual ~Animal() {};
 
 	std::string getName()const;
 	void setName(std::string name);
@@ -19,5 +19,5 @@ public:
 	bool getIsWild()const;
 	void setIsWild(bool isWild);
 
-	void showDescription() const;
+	virtual void showDescription() const;
 };

@@ -12,7 +12,7 @@ int main() {
 
 	Cage cage(88, 7, 3, { bear, emu, wolf });
 
-	Animal* bunny = new Animal("bunny", false);
+	//Animal* bunny = new Animal("bunny", false);
 
 	//cage.showDescription();
 	//cage.addAnimalToCage(bunny);
@@ -51,8 +51,9 @@ int main() {
 				userInputAnimal = new Animal(nameAnimal, boolWildAnimal);
 				cage.addAnimalToCage(userInputAnimal);
 			}
-			catch (NameException& error) {
+			catch (ZooException& error) {
 				cout << error.showMessage() << std::endl;
+				delete userInputAnimal;
 			};
 			break;
 		case 3:
@@ -73,9 +74,7 @@ int main() {
 			cage.findAnimalByName(nameAnimal);
 		}
 
-	} while (menu != 0); {
-
-	}
+	} while (menu != 0);
 
 	return 0;
 }

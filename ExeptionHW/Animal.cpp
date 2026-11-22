@@ -1,4 +1,5 @@
 #include "Animal.h"
+#include "ZooException.h"
 
 Animal::Animal()
 {
@@ -14,7 +15,9 @@ Animal::Animal(std::string name, bool isWild)
 
 std::string Animal::getName() const
 {
-    return name;
+    if (name.empty()) {
+        throw NameException("Name can't be empty", name);
+    }
 }
 
 void Animal::setName(std::string name)

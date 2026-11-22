@@ -52,14 +52,16 @@ void Cage::addAnimalToCage(Animal* animal)
         throw PredatorException("You can't add wild animal to domestic", animal->getIsWild());
     }
     animalsList.push_back(animal);
+    currentNumbOfAnimals++;
 }
 
 void Cage::deleteAnimalFromCage(int index)
 {
-    if (index < animalsList.size()) {
+    if (index >= 0 && static_cast<size_t>(index) < animalsList.size()) {   //static_cast<size_t>(index)  -- робить індекс беззнаковим щоб можна було порівняти з розміром масиву
         delete animalsList[index];
         animalsList.erase(animalsList.begin() + index);
     }
+    currentNumbOfAnimals--;
 }
 
 void Cage::findAnimalByName(std::string name)
@@ -96,8 +98,8 @@ void Cage::findWildAnimal(bool isWild)
     }
     if (count == 0) {
         std::cout << "\nNo one found.\n";
-        std::cout << "\n___________________\n";
-    }
+    }       
+    std::cout << "\n___________________\n";
 }
 
 void Cage::showDescription() const

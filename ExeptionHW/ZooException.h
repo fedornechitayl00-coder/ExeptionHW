@@ -18,7 +18,7 @@ public:
 };
 
 class PredatorException
-	:ZooException {
+	:public ZooException {
 protected:
 	bool isWild;
 public:
@@ -56,12 +56,7 @@ protected:
 public:
 	NameException(std::string textWarning, std::string name)
 		:ZooException(textWarning) {
-		if (name.size() > 0) {
-			this->name = name; 
-		}
-		else {
-			throw NameException("Name can`t be empty!", name);
-		}
+		this->name = name; 
 	}
 
 	std::string showMessage()const override {

@@ -1,17 +1,20 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Animal.h"
 
 using std::cout;
 
-class Fish {
+class Fish 
+: public Animal{
 protected:	
 	bool deepWater;
 public:
-	Fish(){
+	Fish() : Animal(){
 		deepWater = false;
 	}
-	Fish(bool deepWater) {
+	Fish(std::string name, bool isWild, bool deepWater) 
+	: Animal(name, isWild){
 		this->deepWater = deepWater;
 	}
 
@@ -22,7 +25,8 @@ public:
 		return deepWater;
 	}
 
-	void showDescription()const {
+	void showDescription()const override{
+		Animal::showDescription();
 		cout << std::endl;
 		if (!deepWater) cout << "Not ";
 		cout << "living in deep water.";
